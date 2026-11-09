@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T00:00:00Z",
+  "title": "Design System: Caseshelf",
+  "extensions": {
+    "colorMeta": {
+      "void": { "role": "neutral", "displayName": "Void" },
+      "ink": { "role": "neutral", "displayName": "Ink" },
+      "slate": { "role": "neutral", "displayName": "Slate" },
+      "mist": { "role": "neutral", "displayName": "Mist" },
+      "text-secondary": { "role": "neutral", "displayName": "Secondary Text" },
+      "sand": { "role": "secondary", "displayName": "Lamp Sand" },
+      "bone-white": { "role": "primary", "displayName": "Bone White" },
+      "alert": { "role": "neutral", "displayName": "Alert" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Active case title on the Shelf." },
+      "headline": { "displayName": "Headline", "purpose": "Screen names, sheet titles." },
+      "body": { "displayName": "Body", "purpose": "Status, reviews, form text." },
+      "label": { "displayName": "Label", "purpose": "Catalog numbers, formats, field labels; tabular figures." }
+    },
+    "shadows": [
+      { "name": "case-still", "value": "18px 26px 40px -12px rgb(0 0 0 / 0.7)", "purpose": "Static cover preview before the 3D case mounts." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Press feedback, spine pull, fades." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Lamp recolour between cases (520ms)." },
+      { "name": "case-turn-spring", "value": "k 140, c 19", "purpose": "Case rests on front/back after a drag or flip." },
+      { "name": "lid-spring", "value": "k 90, c 17", "purpose": "Hinge open/close." }
+    ],
+    "breakpoints": [{ "name": "wide", "value": "768px" }]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "One per view: the commit action.",
+      "html": "<button class=\"ds-btn-primary\">Put it on the shelf</button>",
+      "css": ".ds-btn-primary{min-height:44px;padding:0 18px;border:0;border-radius:12px;background:#f4f4f2;color:#0a0a0a;font:600 15px 'Inter Variable',system-ui,sans-serif;transition:transform 120ms cubic-bezier(0.23,1,0.32,1)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #c7b9a6;outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral actions.",
+      "html": "<button class=\"ds-btn-secondary\">Keep it</button>",
+      "css": ".ds-btn-secondary{min-height:44px;padding:0 18px;border:0;border-radius:12px;background:#1e2026;color:#f4f4f2;font:600 15px 'Inter Variable',system-ui,sans-serif;transition:background-color 160ms ease}.ds-btn-secondary:hover{background:#2a2f39}.ds-btn-secondary:focus-visible{outline:2px solid #c7b9a6;outline-offset:2px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Slate field, sand focus.",
+      "html": "<input class=\"ds-input\" placeholder=\"As printed on the spine\">",
+      "css": ".ds-input{width:100%;min-height:46px;padding:0 13px;border-radius:10px;border:1px solid #2a2f39;background:#1e2026;color:#f4f4f2;font:16px 'Inter Variable',system-ui,sans-serif}.ds-input::placeholder{color:#7d8592}.ds-input:focus{outline:none;border-color:#c7b9a6}"
+    },
+    {
+      "name": "Format Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Format picker with plastic swatch.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\"><i></i>PS5</button><button class=\"ds-chip\"><i style=\"background:#1f7d3c\"></i>Xbox</button>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;margin-right:8px;border-radius:18px;border:1px solid #2a2f39;background:transparent;color:#f4f4f2;font:500 14px 'Inter Variable',system-ui,sans-serif}.ds-chip i{width:10px;height:14px;border-radius:2px;background:#2149b8}.ds-chip[aria-pressed=true]{background:#f4f4f2;border-color:#f4f4f2;color:#0a0a0a}"
+    },
+    {
+      "name": "Rail Control",
+      "kind": "custom",
+      "description": "Glyph disc on the Shelf rail.",
+      "html": "<button class=\"ds-rail\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\"/></svg><span>Disc</span></button>",
+      "css": ".ds-rail{width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;color:#f4f4f2;font:600 11px 'Inter Variable',system-ui,sans-serif}.ds-rail svg{width:48px;height:48px;padding:11px;border-radius:50%;background:rgb(255 255 255/.1)}.ds-rail:hover svg{background:rgb(255 255 255/.18)}"
+    },
+    {
+      "name": "Tab Bar",
+      "kind": "nav",
+      "description": "Four-slot bar with centre capture.",
+      "html": "<nav class=\"ds-tabs\"><a aria-current=\"page\">Shelf</a><a>Stacks</a><b>+</b><a>Wishlist</a></nav>",
+      "css": ".ds-tabs{display:grid;grid-template-columns:repeat(4,1fr);align-items:center;height:64px;background:#0a0a0a;border-top:1px solid #1e2026;font:600 11px 'Inter Variable',system-ui,sans-serif;color:#8a929e;text-align:center}.ds-tabs [aria-current]{color:#f4f4f2}.ds-tabs b{justify-self:center;width:52px;height:52px;border-radius:50%;background:#f4f4f2;color:#0a0a0a;display:grid;place-items:center;font-size:24px;font-weight:400}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lamplit Case",
+    "overview": "One case at a time, held under a single lamp in a dark room. The interface is the dark room: near-black grounds, white line glyphs, thin type. The colour belongs to the objects.",
+    "keyCharacteristics": [
+      "Full-bleed, one-object-per-screen feed with vertical snap.",
+      "Real 3D cases at true relative scale on a shared floor.",
+      "Ambient lamp recoloured per case.",
+      "Tall condensed display caps over a neutral workhorse sans.",
+      "Tabular figures for every catalog number, count, and score."
+    ],
+    "rules": [
+      { "name": "The Object Owns the Colour Rule", "body": "Saturated colour comes only from a case: its photo, its plastic, or the lamp derived from its cover. Interface surfaces stay neutral.", "section": "colors" },
+      { "name": "The Lamp Rule", "body": "The ground behind the Shelf is a radial lamp mixed from the active case's cover tint over ink-to-void. It recolours between cases; it never animates on its own.", "section": "colors" },
+      { "name": "The Two Sizes Rule", "body": "A list or caption uses two body sizes at most (13 and 15px). Rank comes from weight and colour.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Every number the collector compares is set in tabular figures.", "section": "typography" },
+      { "name": "The No-Eyebrow Rule", "body": "Metadata goes under the title it describes, never above it.", "section": "typography" },
+      { "name": "The Flat Chrome Rule", "body": "No shadows on buttons, chips, cards, or bars. If something needs to lift, it is a case.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the centre of the Shelf empty of chrome; it belongs to the case.",
+      "Do draw every case and spine at its real millimetre proportions.",
+      "Do label generated covers and sample data as samples.",
+      "Do gate hover effects behind (hover: hover) and (pointer: fine).",
+      "Do use bottom sheets (Vaul) for capture and editing; dismiss by drag, scrim tap, or Escape."
+    ],
+    "donts": [
+      "Don't put saturated colour on interface surfaces; colour comes from cases.",
+      "Don't ship real cover art or console-maker logos.",
+      "Don't place a kicker or eyebrow above a heading.",
+      "Don't add shadows to flat chrome.",
+      "Don't animate keyboard-driven or high-frequency actions (tab switches, segment changes); colour transitions at 160ms are the ceiling."
+    ]
+  }
+}
